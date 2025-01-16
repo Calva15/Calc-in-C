@@ -6,3 +6,5 @@
 
 # Checklist (Subject to Change).
     - Add Loops to make it so you dont have to run the program again
+    - Add a GUI
+    - Devlop More complex math operators?
