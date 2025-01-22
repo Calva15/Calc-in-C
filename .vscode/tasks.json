@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "/home/calva15/Documents/VScode/Projects/personalcalcPrebuilds/calculator-prebuild0.30.c",
+                "-o",
+                "/home/calva15/Documents/VScode/Projects/personalcalcPrebuilds/calculator-prebuild0.30",
+                "-lm"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": ""
+        }
+    ]
+}

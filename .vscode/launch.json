@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Calculator",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/calva15/Documents/VScode/Projects/personalcalcPrebuilds/calculator-prebuild0.30",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/home/calva15/Documents/VScode/Projects",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "logging": {
+                "engineLogging": true
+            }
+        }
+    ]
+}
