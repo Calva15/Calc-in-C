@@ -3,7 +3,7 @@
 ## Overview
 This repository contains a personal calculator project created as a way to practice and expand programming skills. The project is designed to provide a customizable and expandable mathematical tool, with both basic and advanced functionality. Future plans include enhancements such as a graphical user interface (GUI) and AI-powered features.
 
-## Current Version: 0.3
+## Current Version: 0.3.1
 
 ### Changelog
 #### Version 0.2
