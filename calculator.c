@@ -1,8 +1,18 @@
-#include <stdio.h>
-#include <math.h>
+#include <stdio.h>  // Included standard library for input and output functions
+#include <stdlib.h> // Include stdlib.h for exit() function
+#include <math.h> // Include math.h for power function
 
 char operator;
 double num1, num2, result;
+
+// Function to clear the terminal screen
+void clear_screen() {
+    #ifdef _WIN32
+        system("cls"); // Clear screen on Windows
+    #else
+        system("clear"); // Clear screen on Unix-like systems
+    #endif
+}
 
 int main() {
     while (1) {
@@ -12,7 +22,8 @@ int main() {
 
         // Exit if the user wants to quit
         if (operator == 'q') {
-            break;
+            clear_screen(); // Clear the screen before exiting
+            exit(0); // Exit the program successfully
         }
 
         // Validates Operator
@@ -20,7 +31,8 @@ int main() {
             printf("Invalid operator! Please enter a valid operator (+, -, *, /, %%, ^) or 'q' to quit: ");
             scanf(" %c", &operator);
             if (operator == 'q') {
-                return 0;
+                clear_screen(); // Clear the screen before exiting
+                exit(0); // Exit the program successfully
             }
         }
 

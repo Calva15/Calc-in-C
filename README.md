@@ -15,6 +15,9 @@ This repository contains a personal calculator project created as a way to pract
 - Implemented a looping mechanism that keeps the program running until the user exits by typing `q`.
 - Added JSON files for local program configuration (may require updates).
 
+#### Version 0.3.1
+- Hotfix for major bug that caused the program to not exit properly.
+
 ### Planned Features and Improvements
 - [x] Implement a looping mechanism to eliminate the need to restart the program manually.
 - [ ] Develop a graphical user interface (GUI) for improved usability.
