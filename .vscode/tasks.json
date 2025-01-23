@@ -7,9 +7,9 @@
             "command": "gcc",
             "args": [
                 "-g",
-                "/home/calva15/Documents/VScode/Projects/personalcalcPrebuilds/calculator-prebuild0.30.c",
+                "${workspaceFolder}/calculator.c",
                 "-o",
-                "/home/calva15/Documents/VScode/Projects/personalcalcPrebuilds/calculator-prebuild0.30",
+                "${workspaceFolder}/calculator",
                 "-lm"
             ],
             "group": {
@@ -17,7 +17,7 @@
                 "isDefault": true
             },
             "problemMatcher": ["$gcc"],
-            "detail": ""
+            "detail": "Generated task by GitHub Copilot"
         }
     ]
 }
