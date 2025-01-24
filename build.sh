@@ -4,7 +4,7 @@
 cd "$(dirname "$0")"
 
 # Compile the program
-gcc -g calculator.c -o calculator -lm
+gcc -g main.c -o calculator -lm
 
 # Check if the compilation was successful
 if [ $? -eq 0 ]; then
