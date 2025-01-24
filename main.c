@@ -15,12 +15,28 @@ void clear_screen()
 #endif
 }
 
+void display_menu()
+{
+    printf("Calculator Program:\n");
+    printf("-----------------------\n");
+    printf("Select an operation from the list below:\n");
+    printf("+: Addition \n");
+    printf("-: Subtraction \n");
+    printf("*: Multiplication \n");
+    printf("/: Division \n");
+    printf("%%: Modulus \n");
+    printf("^: Power \n");
+    printf("q: Quit \n");
+    printf("-----------------------\n");
+}
 int main()
 {
     while (1)
     {
+        display_menu();
+
         // Ask User for input
-        printf("Enter an operator (+, -, *, /, %%, ^) or 'q' to quit: ");
+        printf("Enter an operator from the menu above: ");
         scanf(" %c", &operator);
 
         // Exit if the user wants to quit
@@ -71,26 +87,47 @@ int main()
             result = num1 * num2;
             break;
         case '/':
+            while (1) //loop until valid input is given
+            {
+            
+            
+            
             if (num2 != 0)
             {
                 result = num1 / num2;
+                    break; //Exits loop if valid
             }
             else
             {
-                printf("Error! Division by zero.\n");
-                continue; // Skip the rest of the loop and prompt again
+                printf("Error! Division by zero is not allowed.\n");
+                printf("Enter a non-zero denominator: ");
+                if (scanf("%lf", &num2) != 1){
+                    printf("Invalid input! Please enter a valid number.\n");
+                    while (getchar() != '\n'); // Clears input buffer
+
+                }
+              }
             }
             break;
+
         case '%':
-            if ((int)num2 != 0)
+            while(1) //loop until valid input is given
+            {
+                if ((int)num2 != 0)
             {
                 result = (int)num1 % (int)num2;
+                break; //Exits loop if valid
             }
             else
             {
                 printf("Error! Division by zero.\n");
-                continue; // Skip the rest of the loop and prompt again
-            }
+                printf("Enter a non-zero denominator: ");
+                if (scanf("%lf", &num2) != 1){
+                    printf("Invalid input! Please enter a valid number.\n");
+                    while (getchar() != '\n'); // Clears input buffer
+                    }
+                }
+            } 
             break;
         case '^':
             result = pow(num1, num2);

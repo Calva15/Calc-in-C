@@ -17,6 +17,10 @@ This repository contains a personal calculator project created as a way to pract
 
 #### Version 0.3.1
 - Hotfix for major bug that caused the program to not exit properly.
+#### Version 0.4.0
+- Added better error handling to program for when dividing or modulus by 0
+- Added a better menu for ease of use (NO GUY YET)
+- main file is now, a main file... build.sh has been updated to reflect that
 
 ### Planned Features and Improvements
 - [x] Implement a looping mechanism to eliminate the need to restart the program manually.
