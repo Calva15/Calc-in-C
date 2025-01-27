@@ -1,6 +1,3 @@
-# Recreating the README file into a downloadable markdown file.
-
-readme_content = """
 # Personal Calculator Project
 
 ## Overview
