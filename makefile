@@ -1,13 +1,13 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -lm
+CFLAGS = -Wall
 
 # Directories
 SRC_DIR = src
 OBJ_DIR = build/obj
 BUILD_DIR = build
 
-# Output executable name
+# Target executable
 TARGET = $(BUILD_DIR)/calculator
 
 # Source files
@@ -16,22 +16,22 @@ SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/operations.c $(SRC_DIR)/ui.c $(SRC_DIR)/hist
 # Object files
 OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/operations.o $(OBJ_DIR)/ui.o $(OBJ_DIR)/history.o
 
-# Rules
+# Default rule
 all: setup $(TARGET)
 
 # Create directories if they don't exist
 setup:
 	mkdir -p $(OBJ_DIR) $(BUILD_DIR)
 
-# Build the target executable
+# Link object files into the final executable
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(OBJS) -o $@ -lm
 
 # Compile source files into object files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean up build files
+# Clean build artifacts
 clean:
 	rm -rf $(BUILD_DIR)
 

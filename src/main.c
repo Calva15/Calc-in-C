@@ -96,7 +96,7 @@ int main()
                 if (scanf("%lf", &num1) != 1){
                     printf("Invalid input! Please enter a valid number.\n");
                     while (getchar() != '\n'); // Clears input buffer
-                        continue;
+                    continue;
                 }
                 result = base10_log(num1); //calls function to find log base 10
                 if(result != -1){
