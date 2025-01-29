@@ -14,5 +14,9 @@ double base10_log(double x);
 double sine(double angle);
 double cosine(double angle);
 double tangent(double angle);
-
+long long factorial(int n);
+double exponential(double x);
+double inverse_sine(double x);
+double inverse_cosine(double x);
+double inverse_tangent(double x);
 #endif // OPERATIONS_H

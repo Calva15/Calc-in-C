@@ -12,11 +12,16 @@ void display_menu() {
     printf("%%: Modulus \n");
     printf("^: Power \n");
     printf("s: Square Root \n");
+    printf("!: Factorial \n");
+    printf("v: Exponential \n");
     printf("e: Logarithm \n");
     printf("l: Logbase10 \n");
     printf("$: sine \n");
     printf("(: cosine \n");
     printf("): tangent \n");
+    printf("S: Inverse Sine (asin)\n");
+    printf("C: Inverse Cosine (acos)\n");
+    printf("T: Inverse Tangent (atan)\n");
     printf("q: Quit \n");
     printf("h: Display History \n");
     printf("c: Clear History \n");

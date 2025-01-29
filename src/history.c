@@ -24,6 +24,16 @@ void save_to_history(char operation, double operand1, double operand2, double re
 
     //increment history count
     history_count++;
+
+    //Saves to a File
+    FILE *file = fopen("history.txt", "a");
+    if (file == NULL)
+    {
+        fprintf(stderr, "Error: Unable to open history file.\n");
+        return;
+    }
+    fprintf(file, "%.2lf %c %.2lf = %.2lf\n", operand1, operation, operand2, result);
+    fclose(file);
 }
 
 //display history
@@ -47,4 +57,27 @@ printf("=========================================\n");
 void clear_history(){
     history_count = 0;
     printf("History cleared.\n");
+
+    FILE *file = fopen("history.txt", "w"); //Overwrite with an empty file
+    if (file != NULL){
+
+        fclose(file);
+    }
+    else{
+        fprintf(stderr, "Error: Unable to open history file.\n");
+    }
+}
+
+void load_history(){
+    FILE *file = fopen("history.txt", "r");
+    if (file == NULL){
+        fprintf(stderr, "Error: Unable to open history file.\n");
+        return;
+    }
+    printf("Previous Calculations:\n");
+    char line[100];
+    while (fgets(line, sizeof(line), file)){
+        printf("%s", line);
+    }
+    fclose(file);
 }

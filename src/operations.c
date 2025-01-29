@@ -101,3 +101,53 @@ double tangent(double angle)
 {
     return tan(angle); //returns tan(angle)
 }
+//Function to add factorials
+
+long long factorial(int n)
+{
+    if (n < 0)
+    {
+        fprintf(stderr, "Error: Factorial of a negative number\n");
+        return -1;
+    }
+    long long result = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        result *= i;
+    }
+    return result;
+}
+
+//Function to add exponetial
+
+double exponential(double x)
+{
+    return exp(x); //returns e^x
+}
+
+//Function to add inverse trig functions
+
+double inverse_sine(double x)
+{
+    if (x < -1 || x > 1)
+    {
+        fprintf(stderr, "Error: arcsine is undefined for values outside the range [-1, 1].\n");
+        return -1;
+    }
+    return asin(x); //returns sin^-1(x)
+}
+
+double inverse_cosine(double x)
+{
+    if (x < -1 || x > 1)
+    {
+        fprintf(stderr, "Error: arccosine is undefined for values outside the range [-1, 1].\n");
+        return -1;
+    }
+    return acos(x); //returns cos^-1(x)
+}
+
+double inverse_tangent(double x)
+{
+    return atan(x); //returns tan^-1(x)
+}

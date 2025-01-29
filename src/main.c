@@ -1,4 +1,4 @@
-#include"ui.h"
+#include"ui.h" // Include the header file for the user interface
 #include <string.h> // Include string.h for string functions
 #include <stdio.h>  // Included standard library for input and output functions
 #include <stdlib.h> // Include stdlib.h for exit() function
@@ -6,9 +6,9 @@
 #include "ui.h"    // Include the header file for the user interface
 #include "operations.h" // Include the header file for the operations
 #include "history.h" // Include the header file for the history
-#define EPSILON 1e-9
-#define PI 3.141592653589793
-          // Counter to keep track of history entries
+#define EPSILON 1e-9 // A very small number to compare floating-point values
+#define PI 3.141592653589793 // The value of pi
+#include "input_parser.h" // Include the header file for the input parser
 char operator;
 double num1, num2, result;
 
@@ -22,18 +22,34 @@ void clear_screen()
 #endif
 }
 
+
 int main()
 {
     // Display ASCII Art
     display_ascii_art();
+    load_history(); // Load history from file
 
     while (1)
     {
         display_menu();
 
-        // Ask User for input
-        printf("Enter an operator from the menu above: ");
-        scanf(" %c", &operator);
+// NEW: Read full expression or operator
+    char expression[100];
+    printf("Enter a mathematical expression or select an operator: ");
+    scanf(" %[^\n]", expression); // Reads full input (expression or operator)
+
+    // If input is a single character and a valid operator, process normally
+    if (strlen(expression) == 1 && strchr("+-*/%%^qSCT!v", expression[0])) {
+        operator = expression[0]; // Process operator normally
+    } else {
+        // Otherwise, treat input as a mathematical expression
+        result = evaluate_expression(expression);
+        printf("Result: %s = %.2lf\n", expression, result);
+        save_to_history('E', 0, 0, result);
+        continue; // Skip normal operator handling
+    }
+
+    // Existing operator-based processing remains unchanged...
 
         // Exit if the user wants to quit
         if (operator== 'q')
@@ -156,8 +172,67 @@ int main()
     continue; // Skip to the next iteration of the main loop
 }
 
+        if (operator == '!') {
+    printf("Enter a non-negative integer: ");
+    int num;
+    char leftover; // Variable to check for extra characters
 
-            
+    // Ensure input is a valid integer without any decimal parts
+    if (scanf("%d%c", &num, &leftover) != 2 || leftover != '\n' || num < 0) {
+        printf("Invalid input! Please enter a non-negative integer.\n");
+        while (getchar() != '\n'); // Clear buffer
+        continue;
+    }
+
+    long long result = factorial(num);
+    if (result != -1) { // Only print if valid
+        printf("Result: %d! = %lld\n", num, result);
+        save_to_history('!', num, 0, result);
+    }
+    continue;
+        }
+            if(operator == 'v'){
+                printf("Enter a number: ");
+                    if(scanf("%lf", &num1) != 1){
+                        printf("Invalid input! Please enter a valid number.\n");
+                        while (getchar() != '\n')
+                            ; // Clears input buffer
+                            continue;
+                    }
+                    result = exponential(num1);
+                    printf("Result: e^%.2lf = %.2lf\n", num1, result);
+                    save_to_history('v', num1, 0, result);
+                    continue;
+            }
+
+            if (operator == 'S' || operator == 'C' || operator == 'T') {
+                printf("Enter a number: ");
+                 if (scanf("%lf", &num1) != 1) {
+                     printf("Invalid input! Please enter a valid number.\n");
+                 while (getchar() != '\n'); // Clear buffer
+            continue;
+    }
+
+            if (operator == 'S') {
+             result = inverse_sine(num1);
+                 if (result != -1) { // Only print if valid
+                  printf("Result: asin(%.2lf) = %.2lf radians\n", num1, result);
+                     save_to_history('S', num1, 0, result);
+                    }
+                  }   else if (operator == 'C') {
+                result = inverse_cosine(num1);
+            if (result != -1) { // Only print if valid
+        printf("Result: acos(%.2lf) = %.2lf radians\n", num1, result);
+    save_to_history('C', num1, 0, result);
+}
+    } else if (operator == 'T') {
+        result = inverse_tangent(num1);
+        printf("Result: atan(%.2lf) = %.2lf radians\n", num1, result);
+        save_to_history('T', num1, 0, result);
+    }
+    continue;
+}
+
         // Validates Operator
         while (operator!= '+' && operator!= '-' 
                 && operator!= '*' && operator!= '/' 
@@ -166,8 +241,9 @@ int main()
                 && operator!='c' && operator!='h'
                 && operator!='e' && operator!='l'
                 && operator!='$' && operator!='('
-                && operator!=')')
-        {
+                && operator!=')' && operator!='!'
+                && operator!='v' && operator!='S' 
+                && operator!='C' && operator!='T'){
             printf("Invalid operator! Please enter a valid operator (+, -, *, /, %%, ^) or 'q' to quit: ");
             scanf(" %c", &operator);
             if (operator== 'q')

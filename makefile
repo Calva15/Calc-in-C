@@ -1,37 +1,38 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -lm
 
 # Directories
 SRC_DIR = src
 OBJ_DIR = build/obj
 BUILD_DIR = build
 
-# Target executable
+# Output executable name
 TARGET = $(BUILD_DIR)/calculator
 
 # Source files
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/operations.c $(SRC_DIR)/ui.c $(SRC_DIR)/history.c
+SRCS = $(wildcard $(SRC_DIR)/*.c) # Automatically find all .c files in src/
+HEADERS = $(wildcard $(SRC_DIR)/*.h) # Automatically find all .h files in src/
 
-# Object files
-OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/operations.o $(OBJ_DIR)/ui.o $(OBJ_DIR)/history.o
+# Object files (convert .c files to .o files in OBJ_DIR)
+OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 # Default rule
 all: setup $(TARGET)
 
-# Create directories if they don't exist
+# Create necessary directories if they don't exist
 setup:
 	mkdir -p $(OBJ_DIR) $(BUILD_DIR)
 
-# Link object files into the final executable
+# Build the final executable by linking object files
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o $@ -lm
+	$(CC) -o $@ $^ $(CFLAGS)
 
-# Compile source files into object files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+# Rule for compiling .c files into .o object files
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean build artifacts
+# Clean all compiled files and directories
 clean:
 	rm -rf $(BUILD_DIR)
 

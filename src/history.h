@@ -13,5 +13,7 @@ typedef struct
 void save_to_history(char operation, double operand1, double operand2, double result);
 void display_history();
 void clear_history();
+void load_history();
+
 
 #endif // HISTORY_H
