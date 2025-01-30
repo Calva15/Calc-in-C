@@ -57,10 +57,11 @@ This repository contains a personal calculator project created as a way to pract
 
 1. Clone the repository:
 
-   ```bash
+```bash
+
    git clone <repository-url>
 
-  ```bash
+ ```
 
 
 2. Option 1: Using the Makefile
