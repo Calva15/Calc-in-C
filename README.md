@@ -32,9 +32,9 @@ This repository contains a personal calculator project created as a way to pract
 #### Version 0.5.0
 
 - Added new advanced mathematical operations:
-  - **Square Root (`s`)**: Handles real numbers and errors for negative inputs.
-  - **Logarithms (`l` and `g`)**: Supports natural log (`ln`) and base-10 log (`log10`) with error handling for non-positive inputs.
-  - **Trigonometric Functions (`$`, `@`, `#`)**: Allows inputs in radians, including support for `pi` expressions.
+  - **Square Root (********`s`********\*\*\*\*)**: Handles real numbers and errors for negative inputs.
+  - **Logarithms (********`l`********\*\*\*\* and ************`g`************)**: Supports natural log (`ln`) and base-10 log (`log10`) with error handling for non-positive inputs.
+  - **Trigonometric Functions (********`$`********\*\*\*\*, ************`@`************, ************`#`************)**: Allows inputs in radians, including support for `pi` expressions.
 - Enhanced history functionality:
   - Users can view calculation history (`h`) and clear it (`c`) when needed.
   - History is dynamically updated after every operation.
@@ -46,23 +46,15 @@ This repository contains a personal calculator project created as a way to pract
 
 ### Planned Features and Improvements
 
-- [x] Implement a looping mechanism to eliminate the need to restart the program manually.
-- [x] Add more complex mathematical operations (e.g., trigonometric functions, logarithms).
-- [x] Modularize the code for easier maintenance and scalability.
-- [x] Add a `Makefile` for streamlined builds.
-- [ ] Develop a graphical user interface (GUI) for improved usability.
-- [ ] Explore AI integration for enhanced functionality (long-term goal).
+-
 
 ## How to Run
 
 1. Clone the repository:
 
-```bash
-
+   ```bash
    git clone <repository-url>
-
- ```
-
+   ```
 
 2. Option 1: Using the Makefile
 
@@ -83,13 +75,10 @@ This repository contains a personal calculator project created as a way to pract
    - Clean the build directory:
 
      - To remove all build artifacts (including the executable):
-
        ```bash
        make clean
        ```
-
      - To remove only the object files:
-
        ```bash
        make clean-obj
        ```
@@ -101,6 +90,7 @@ This repository contains a personal calculator project created as a way to pract
      ```bash
      gcc -Wall -lm -o build/calculator src/main.c src/operations.c src/ui.c src/history.c
      ```
+
      This manually compiles the program and outputs the executable in the build/ directory.
 
    - Run the program:
@@ -112,13 +102,62 @@ This repository contains a personal calculator project created as a way to pract
    - Clean up manually:
 
      - To remove all build artifacts:
-
        ```bash
        rm -rf build/
        ```
-
      - To remove only object files (if generated):
-
        ```bash
        rm -rf build/obj/
        ```
+
+## Contributing
+
+I welcome contributions to this project! If you'd like to contribute, please follow these steps:
+
+1. **Fork the Repository**
+
+   - Click the `Fork` button at the top right of the repository page.
+
+2. **Clone Your Fork**
+
+   - Clone your forked repository to your local machine:
+     ```bash
+     git clone https://github.com/your-username/calculator-project.git
+     ```
+
+3. **Create a New Branch**
+
+   - Create a branch for your feature or bug fix:
+     ```bash
+     git checkout -b feature-branch-name
+     ```
+
+4. **Make Your Changes**
+
+   - Implement your changes and commit them with a descriptive message:
+     ```bash
+     git add .
+     git commit -m "Added new feature or fixed a bug"
+     ```
+
+5. **Push to Your Fork**
+
+   - Push your changes to your forked repository:
+     ```bash
+     git push origin feature-branch-name
+     ```
+
+6. **Submit a Pull Request**
+
+   - Open a pull request (PR) from your fork's branch to the `main` branch of this repository.
+   - Provide a detailed description of your changes and why they should be merged.
+
+### Contribution Guidelines
+
+- Follow clean coding practices and ensure proper documentation.
+- Keep commits small and meaningful.
+- Make sure your code compiles and runs correctly before submitting.
+- If your change includes a new feature, update the documentation accordingly.
+- Be respectful in code reviews and discussions.
+
+I appreciate your contributions to this small weirdo project of mine!
